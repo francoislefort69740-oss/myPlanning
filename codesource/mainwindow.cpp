@@ -5,9 +5,9 @@
 #include <QWidget>
 #include <QApplication>
 #include <QDebug>
+#include "LayoutManager.h"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
     // Widget central obligatoire pour un QMainWindow
     QWidget *central = new QWidget(this);
@@ -18,12 +18,10 @@ MainWindow::MainWindow(QWidget *parent)
     m_label = new QLabel(HELLO_WORLD, this);
     m_bouton = new QPushButton("VALIDE", this);
     m_close = new QPushButton("CLOSE", this);
+    QList<QWidget*> list = {m_label,m_bouton,m_close};
 
     // Layout
-    QVBoxLayout *layout = new QVBoxLayout(central);
-    layout->addWidget(m_label);
-    layout->addWidget(m_bouton);
-    layout->addWidget(m_close);
+    new LayoutManager(list, central);
 
     // Connexion signal / slot
     connect(m_bouton, &QPushButton::clicked, this, &MainWindow::boutonClique);
@@ -44,6 +42,5 @@ void MainWindow::boutonClique()
     }
 
     m_label->setText(HELLO_WORLD);
-
 }
 
