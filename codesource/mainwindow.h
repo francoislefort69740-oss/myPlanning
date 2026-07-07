@@ -19,6 +19,7 @@ private slots:
 
 private:
     QString HELLO_WORLD;
+    QLabel *m_titre;
     QLabel *m_label;
     QPushButton *m_bouton;
     QPushButton *m_close;

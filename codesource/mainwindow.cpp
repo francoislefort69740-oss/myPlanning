@@ -15,12 +15,21 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
     // Widgets
     HELLO_WORLD = "HELLO WORLD!";
+    m_titre = new QLabel("PLANNING", this);
     m_label = new QLabel(HELLO_WORLD, this);
     m_bouton = new QPushButton("VALIDE", this);
     m_close = new QPushButton("CLOSE", this);
-    QList<QWidget*> list = {m_label,m_bouton,m_close};
+    QList<QWidget*> list = {m_titre,m_label,m_bouton,m_close};
 
     // customisation
+    QString titleSteelSheet = "background-color: #AAAAAA;"
+                              "border-radius: 5px;"
+                              "color: black;"
+                              "font-size: 20px;"
+                              "font-weight: bold;"
+                              "padding: 10px";
+
+
     QString mySteelSheet = "QLabel {"
                            "background-color: #BBBBBB;"
                            "border-radius: 30px;"
@@ -32,6 +41,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
                            "}";
 
     m_label->setStyleSheet(mySteelSheet);
+    m_titre->setAlignment(Qt::AlignCenter);
+    m_titre->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
+    m_titre->setStyleSheet(titleSteelSheet);
     m_label->setAlignment(Qt::AlignCenter);
 
     // Layout
