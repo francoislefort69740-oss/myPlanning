@@ -11,7 +11,8 @@ qt_add_executable(codeSource
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-    LayoutManager.h LayoutManager.cpp
+    LayoutManager.h
+    LayoutManager.cpp
 )
 
 target_link_libraries(codeSource

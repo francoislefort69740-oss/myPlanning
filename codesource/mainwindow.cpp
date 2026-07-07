@@ -20,6 +20,20 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     m_close = new QPushButton("CLOSE", this);
     QList<QWidget*> list = {m_label,m_bouton,m_close};
 
+    // customisation
+    QString mySteelSheet = "QLabel {"
+                           "background-color: #BBBBBB;"
+                           "border-radius: 30px;"
+                           "padding: 5px;"
+                           "color: black;"
+                           "}"
+                           "QLabel:hover {"
+                           "background-color: #CCCCCC;"
+                           "}";
+
+    m_label->setStyleSheet(mySteelSheet);
+    m_label->setAlignment(Qt::AlignCenter);
+
     // Layout
     new LayoutManager(list, central);
 
